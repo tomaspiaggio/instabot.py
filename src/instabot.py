@@ -15,6 +15,7 @@ from .sql_updates import (
 from .sql_updates import insert_media, insert_username, insert_unfollow_count
 from .sql_updates import check_already_followed, check_already_unfollowed
 from .sql_updates import check_and_update, check_already_liked
+from .get_proxies import SSLProxyProvider
 import re
 import time
 import sqlite3
@@ -348,6 +349,7 @@ class InstaBot:
         signal.signal(signal.SIGTERM, self.cleanup)
         atexit.register(self.cleanup)
         self.instaload = instaloader.Instaloader()
+        self.proxy_provider = SSLProxyProvider()
 
     def check_for_bot_update(self):
         self.write_log("Checking for updates...")
@@ -1037,6 +1039,10 @@ class InstaBot:
     def new_auto_mod(self):
         self.mainloop()
 
+    def update_proxies(self):
+        self.s = requests.Session()
+        self.s.proxies = {'https': self.proxy_provider.next()}
+
     def mainloop(self):
         while self.prog_run and self.login_status:
             now = datetime.datetime.now()
@@ -1055,14 +1061,16 @@ class InstaBot:
                     self.remove_already_liked()
                 # ------------------- Like -------------------
                 self.new_auto_mod_like()
-                # ------------------- Unlike -------------------
+                # ------------------- Unlike -----------------
                 self.new_auto_mod_unlike()
-                # ------------------- Follow -------------------
+                # ------------------- Follow -----------------
                 self.new_auto_mod_follow()
-                # ------------------- Unfollow -------------------
+                # ------------------- Unfollow ---------------
                 self.new_auto_mod_unfollow()
-                # ------------------- Comment -------------------
+                # ------------------- Comment ----------------
                 self.new_auto_mod_comments()
+                # ------------------- Update Proxies ---------
+                self.update_proxies()
                 # Bot iteration in 1 sec
                 time.sleep(1)
                 # print("Tic!")

@@ -20,13 +20,13 @@ print(f"Password: {sys.argv[2]}")
 bot = InstaBot(
     login=sys.argv[1],
     password=sys.argv[2],
-    like_per_day=1000,
-    comments_per_day=0,
+    like_per_day=700,
+    comments_per_day=100,
     tag_list=["streetart", "art", "graffiti", "photography", "streetphotography", "street", "urbanart", "photooftheday", "instagood", "artist", "love", "bnw", "photo", "travel", "streetstyle", "urban", "artwork", "life", "city", "ig", "mural", "painting", "graffitiart", "blackandwhite", "fashion", "photographer", "portrait", "architecture", "picoftheday", "beach", "sunset", "nature", "sun", "sea", "sky", "pretty", "follow", "dog", "beautiful", "blue", "fun", "summer", "clouds", "beauty", "bestoftheday", "cool", "f", "hair", "amazing", "swag", "djiglobal", "gopro", "goproarg", "beachlife", "wanderlust", "escapecampervans", "chasingsunsets", "wanderers", "worldexplorer", "design", "interiordesign", "architecturephotography", "building", "landscape", "archilovers", "architect", "instatravel", "like", "arquitectura", "luxury", "home", "interior"],
     tag_blacklist=["rain", "thunderstorm"],
     user_blacklist={},
     max_like_for_one_tag=50,
-    follow_per_day=500,
+    follow_per_day=0,
     follow_time=10 * 60 * 60,
     unfollow_per_day=500,
     unlike_per_day=0,
@@ -72,7 +72,7 @@ bot = InstaBot(
             "excellent",
             "amazing",
         ],
-        [".", "🙌", "... 👏", "!", "! 😍", "😎"],
+        [".", "🙌", "... 👏", "!", "! 😍", "😎"]
     ],
     # Use unwanted_username_list to block usernames containing a string
     # Will do partial matches; i.e. 'mozart' will block 'legend_mozart'
@@ -132,9 +132,9 @@ bot = InstaBot(
     ],
     unfollow_whitelist=['j_pou_g', 'tomaspiaggio', 'pilispadaro', 'additionstudios'],
     # Enable the following to schedule the bot. Uses 24H
-    # end_at_h = 23, # Hour you want the bot to stop
+    end_at_h = 22, # Hour you want the bot to stop
     # end_at_m = 30, # Minute you want the bot stop, in this example 23:30
-    # start_at_h = 9, # Hour you want the bot to start
+    start_at_h = 8, # Hour you want the bot to start
     # start_at_m = 10, # Minute you want the bot to start, in this example 9:10 (am).
 )
 

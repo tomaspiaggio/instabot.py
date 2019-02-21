@@ -112,3 +112,5 @@ ENV/
 *.session
 DS/
 nohup.out
+.DS_Store
+/.DS_Store

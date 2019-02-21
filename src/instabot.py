@@ -683,9 +683,9 @@ class InstaBot:
                                 "edges"
                             ]
                         )
-                    except:
+                    except Exception as e:
                         self.media_by_tag = []
-                        self.write_log("Except on get_media!")
+                        self.write_log(f"Except on get_media: {e}")
                         logging.exception("get_media_id_by_tag")
                 else:
                     return 0
@@ -1059,18 +1059,18 @@ class InstaBot:
                         1, self.max_like_for_one_tag
                     )
                     self.remove_already_liked()
-                # ------------------- Like -------------------
+                # ----------------- Like -------------------
                 self.new_auto_mod_like()
-                # ------------------- Unlike -----------------
+                # ---------------- Unlike -----------------
                 self.new_auto_mod_unlike()
-                # ------------------- Follow -----------------
+                # ---------------- Follow -----------------
                 self.new_auto_mod_follow()
-                # ------------------- Unfollow ---------------
+                # --------------- Unfollow ---------------
                 self.new_auto_mod_unfollow()
-                # ------------------- Comment ----------------
+                # ---------------- Comment ----------------
                 self.new_auto_mod_comments()
-                # ------------------- Update Proxies ---------
-                self.update_proxies()
+                # ------------- Update Proxies ---------
+                # self.update_proxies()
                 # Bot iteration in 1 sec
                 time.sleep(1)
                 # print("Tic!")

@@ -1061,15 +1061,15 @@ class InstaBot:
                     self.remove_already_liked()
                 # ----------------- Like -------------------
                 self.new_auto_mod_like()
-                # ---------------- Unlike -----------------
+                # ---------------- Unlike ------------------
                 self.new_auto_mod_unlike()
-                # ---------------- Follow -----------------
+                # ---------------- Follow ------------------
                 self.new_auto_mod_follow()
-                # --------------- Unfollow ---------------
+                # --------------- Unfollow -----------------
                 self.new_auto_mod_unfollow()
-                # ---------------- Comment ----------------
+                # ---------------- Comment -----------------
                 self.new_auto_mod_comments()
-                # ------------- Update Proxies ---------
+                # ------------- Update Proxies -------------
                 # self.update_proxies()
                 # Bot iteration in 1 sec
                 time.sleep(1)

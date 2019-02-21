@@ -39,7 +39,7 @@ class SSLProxyProvider(ProxyProvider):
             ports = col[1][1]
             ips_with_ports = zip(ips, ports)
             ips_with_ports = filter(remove_countries, ips_with_ports)
-            return map(lambda tup: 'https://{}:{}'.format(tup[0], tup[1]), ips_with_ports)
+            return map(lambda tup: '{}:{}'.format(tup[0], tup[1]), ips_with_ports)
 
         def get_table_elements(url):
             page = requests.get(url)

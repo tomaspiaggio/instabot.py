@@ -20,7 +20,7 @@ print(f"Password: {sys.argv[2]}")
 bot = InstaBot(
     login=sys.argv[1],
     password=sys.argv[2],
-    like_per_day=700,
+    like_per_day=500,
     comments_per_day=100,
     tag_list=["streetart", "art", "graffiti", "photography", "streetphotography", "street", "urbanart", "photooftheday", "instagood", "artist", "love", "bnw", "photo", "travel", "streetstyle", "urban", "artwork", "life", "city", "ig", "mural", "painting", "graffitiart", "blackandwhite", "fashion", "photographer", "portrait", "architecture", "picoftheday", "beach", "sunset", "nature", "sun", "sea", "sky", "pretty", "follow", "dog", "beautiful", "blue", "fun", "summer", "clouds", "beauty", "bestoftheday", "cool", "f", "hair", "amazing", "swag", "djiglobal", "gopro", "goproarg", "beachlife", "wanderlust", "escapecampervans", "chasingsunsets", "wanderers", "worldexplorer", "design", "interiordesign", "architecturephotography", "building", "landscape", "archilovers", "architect", "instatravel", "like", "arquitectura", "luxury", "home", "interior"],
     tag_blacklist=["rain", "thunderstorm"],
